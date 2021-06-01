@@ -1,15 +1,23 @@
 package br.com.alura.forum.repository;
 
 import java.net.InterfaceAddress;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.alura.forum.modelo.Topico;
 
 /**
- * @author luciano.luiz.romero
- * Criando a interface de conexão a tabela topico, quando extedindo de JPA Repository devemos informar qual tabela vai 
- * conectar no caso TOPICO e qual é o tipo do ID (chave primaria) nesse caso é long private Long id;
+ * @author luciano.luiz.romero Criando a interface de conexão a tabela topico,
+ *         quando extedindo de JPA Repository devemos informar qual tabela vai
+ *         conectar no caso TOPICO e qual é o tipo do ID (chave primaria) nesse
+ *         caso é long private Long id;
  */
-public interface TopicoRepository extends JpaRepository<Topico, Long> { 
+public interface TopicoRepository extends JpaRepository<Topico, Long> {
+
+	/**
+	 * @param nomeCurso
+	 * @return Retorna uma lista dos curso e realiza filtro
+	 */
+	List<Topico> findByCursoNome(String nomeCurso);
 }
