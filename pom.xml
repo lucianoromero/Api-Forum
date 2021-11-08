@@ -50,12 +50,20 @@
 			<artifactId>spring-boot-starter-cache</artifactId>
 			<version>2.5.6</version>
 		</dependency>
-		
+
 		<!-- Spring boot Starter security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+		<!-- JSON web token -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
