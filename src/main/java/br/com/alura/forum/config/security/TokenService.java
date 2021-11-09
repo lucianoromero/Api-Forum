@@ -19,12 +19,17 @@ public class TokenService {
 	@Value("${forum.jwt.secret}")
 	private String secret;
 
+	/**
+	 * @apiNote Metodo Responsavel pela criação de token
+	 * @param Recebe como paramentro: authentication 
+	 * @return Retorna um Token 
+	 */
 	public String gerarToken(Authentication authentication) {
 
 		Usuario logado = (Usuario) authentication.getPrincipal();
 		Date hoje = new Date();
 		Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
-	
+
 		return Jwts.builder()
 				.setIssuer("API do Forúm da Alura")
 				.setSubject(logado.getId().toString())
@@ -32,5 +37,19 @@ public class TokenService {
 				.setExpiration(dataExpiracao)
 				.signWith(SignatureAlgorithm.HS256, secret)
 				.compact();
-	}	
+	}
+
+	/**
+	 * @apiNote Metodo responsavel por validar o token
+	 * @param Recebe como paramentro: token
+	 * @return Retorna um boolean, true token valido e false token não é valido
+	 */
+	public boolean isTokenValido(String token) {
+		try {
+			Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}	
+	}
 }
