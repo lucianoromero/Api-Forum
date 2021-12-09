@@ -1,7 +1,6 @@
 package br.com.alura.forum.controller;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

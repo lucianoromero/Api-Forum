@@ -3,12 +3,16 @@ package br.com.alura.forum.controller.dto;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
+import java.util.Objects;
 import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import br.com.alura.forum.modelo.StatusTopico;
 import br.com.alura.forum.modelo.Topico;
 
+@JsonInclude(Include.NON_NULL)
 public class DetalhesDoTopicoDto {
 
 	private Long id;
@@ -29,7 +33,9 @@ public class DetalhesDoTopicoDto {
 		this.titulo = topico.getTitulo();
 		this.mensagem = topico.getMensagem();
 		this.dateCriacao = topico.getDataCriacao();
-		this.nomeAutor = topico.getAutor().getNome();
+		if (Objects.nonNull(topico.getAutor())) {
+			this.nomeAutor = topico.getAutor().getNome();
+		}
 		this.status = topico.getStatus();
 
 		this.respostas = new ArrayList<>();

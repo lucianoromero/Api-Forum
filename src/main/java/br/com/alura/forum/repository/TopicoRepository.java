@@ -1,6 +1,5 @@
 package br.com.alura.forum.repository;
 
-import java.net.InterfaceAddress;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
