@@ -11,7 +11,7 @@
  - Trabalhando com POST
  - Validação com Bean Validation
  - Métodos PUT, DELETE e tratamento de erro
- - 
+ 
  <h3> Modulo 2 </h3> 
 (trabalhando na branch modulo2)
 
